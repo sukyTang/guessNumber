@@ -14,29 +14,28 @@ step4: Compare player's number with the chosen number
 */
 int main() {
     //step1:
-    std::cout<<"This is game of GuessANumber. I have a hidden number between 0 and"
-            <<"100. Try to guess this number now";
+    std::cout<<"This is game of GuessANumber. I have a hidden number between 0 and \n100. Try to guess this number now.\n";
     //step2:
     int hiddenNumber = std::rand() % 100;
     int playerNumber{}; // declaring player's number
-    std::cin>>playerNumber;
     bool playAgainFlag{false};
     bool playerGuessIncorrect{true};
 
     while(playerGuessIncorrect){
         std::cout<<"Pick a number: ";
         std::cin>>playerNumber; //step3
-    //step4:
+        //step4:
         if(playerNumber == hiddenNumber) 
         {
             playerGuessIncorrect = false;
-            std::cout<<"Congradulation!! You won! Would you like to play again? (Yes/No)";
+            std::cout<<"Congradulation!! You won! Would you like to play again? (Yes/No)\n";
             std::string response{""};
             std::cin>> response;
+            
             if(response == "Yes") {
                 playAgainFlag == true;
             }
-            else { // means player's guess was not correct
+        } else { // means player's guess was not correct
                 if (playerNumber < hiddenNumber) {
                     std::cout<<"Too low! Try again\n";
                 }
@@ -44,7 +43,6 @@ int main() {
                     std::cout<<"Too high! Try again\n";
                 }
                 playerGuessIncorrect = true;
-            }
         }
     }
 }
